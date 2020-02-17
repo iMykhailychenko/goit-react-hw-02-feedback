@@ -1,0 +1,18 @@
+.title {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.btn {
+    padding: 5px 14px;
+    margin-right: 10px;
+    border-radius: 6px;
+    background-color: #fff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(114, 114, 114);
+    text-transform: capitalize;
+    cursor: pointer;
+}
