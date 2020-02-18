@@ -1,14 +1,18 @@
-import React from "react";
-import styles from "./FeedbackBtn.module.css";
+import React from 'react';
+import styles from './FeedbackBtn.module.css';
 
-const FeedbackBtn = ({ state, onFeedbac }) => {
+const FeedbackOptions = ({ state, onFeedbac }) => {
   const buttons = Object.keys(state);
-  console.log(state);
   return (
     <>
-      <h2 className={styles.title}>Please leave feedback</h2>
       {buttons.map(item => (
-        <button key={item} className={styles.btn} name={item} onClick={onFeedbac} type="button">
+        <button
+          key={item}
+          className={styles.btn}
+          name={item}
+          onClick={onFeedbac}
+          type="button"
+        >
           {item}
         </button>
       ))}
@@ -16,4 +20,4 @@ const FeedbackBtn = ({ state, onFeedbac }) => {
   );
 };
 
-export default FeedbackBtn;
+export default FeedbackOptions;

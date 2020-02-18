@@ -1,0 +1,15 @@
+.list {
+  list-style: none;
+  color: #fff;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-size: 1rem;
+}
+
+.item span:nth-of-type(2n-1) {
+  padding-right: 0.2rem;
+}
+
+.item span:nth-of-type(2n-1)::after {
+  content: ':';
+}
