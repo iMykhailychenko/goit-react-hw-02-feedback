@@ -31,9 +31,9 @@ export default class App extends Component {
   getPositivePercentage() {
     const { good } = this.state;
     const total = this.total();
-    if (total === 0) return `${total}%`;
+    if (total === 0) return total;
 
-    const positivePercentage = `${Math.floor((good / total) * 100)}%`;
+    const positivePercentage = Math.floor((good / total) * 100);
     return positivePercentage;
   }
 

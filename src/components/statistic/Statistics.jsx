@@ -6,32 +6,40 @@ const Statistics = ({
   state: { good, neutral, bad, total, positivePercentage },
 }) => {
   return (
-    <ul className={style.list}>
-      <li className={style.item}>
-        <span>good: </span>
-        <span>{good}</span>
-      </li>
+    <>
+      <ul className={style.list}>
+        <li className={style.item}>
+          <span>good: </span>
+          <span>{good}</span>
+        </li>
 
-      <li className={style.item}>
-        <span>neutral: </span>
-        <span>{neutral}</span>
-      </li>
+        <li className={style.item}>
+          <span>neutral: </span>
+          <span>{neutral}</span>
+        </li>
 
-      <li className={style.item}>
-        <span>bad: </span>
-        <span>{bad}</span>
-      </li>
+        <li className={style.item}>
+          <span>bad: </span>
+          <span>{bad}</span>
+        </li>
 
-      <li className={style.total}>
-        <span>total: </span>
-        <span>{total}</span>
-      </li>
+        <li className={style.total}>
+          <span>total: </span>
+          <span>{total}</span>
+        </li>
 
-      <li className={style.item}>
-        <span>positive percentage: </span>
-        <span>{positivePercentage}</span>
-      </li>
-    </ul>
+        <li className={style.item}>
+          <span>positive percentage: </span>
+          <span>{`${positivePercentage}%`}</span>
+        </li>
+      </ul>
+
+      <progress
+        className={style.progress}
+        max="100"
+        value={positivePercentage}
+      />
+    </>
   );
 };
 
@@ -41,7 +49,7 @@ Statistics.propTypes = {
     neutral: PropTypes.number.isRequired,
     bad: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired,
-    positivePercentage: PropTypes.string.isRequired,
+    positivePercentage: PropTypes.number.isRequired,
   }).isRequired,
 };
 
