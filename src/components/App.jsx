@@ -5,6 +5,7 @@ import PhoneWrapper from './phone-wrapper/PhoneWrapper.styled';
 import FeedbackOptions from './feedback-btn/FeedbackBtn';
 import Statistics from './statistic/Statistics';
 import Section from './section/Section';
+import Notification from './notification/Notification';
 
 // import styles
 import './base.css';
@@ -16,20 +17,23 @@ export default class App extends Component {
     bad: 0,
   };
 
-  handleFeedbac = ({ target }) => {
+  handleFeedback = ({ target }) => {
     const { name } = target;
     this.setState(ps => ({ [name]: ps[name] + 1 }));
   };
 
-  countTotal() {
-    return Object.values(this.state).reduce((acum, cur) => acum + cur, 0);
+  total() {
+    const obj = Object.values(this.state);
+    const total = obj.reduce((acum, curr) => acum + curr, 0);
+    return total;
   }
 
   getPositivePercentage() {
     const { good } = this.state;
-    const positivePercentage = `${Math.floor(
-      (good / this.countTotal()) * 100,
-    )}%`;
+    const total = this.total();
+    if (total === 0) return `${total}%`;
+
+    const positivePercentage = `${Math.floor((good / total) * 100)}%`;
     return positivePercentage;
   }
 
@@ -37,16 +41,23 @@ export default class App extends Component {
     return (
       <PhoneWrapper>
         <Section title="Please leave feedback">
-          <FeedbackOptions state={this.state} onFeedbac={this.handleFeedbac} />
+          <FeedbackOptions
+            state={this.state}
+            onFeedback={this.handleFeedback}
+          />
         </Section>
         <Section title="Statistics">
-          <Statistics
-            state={{
-              ...this.state,
-              positivePercentage: this.getPositivePercentage(),
-              total: this.countTotal(),
-            }}
-          />
+          {this.total() === 0 ? (
+            <Notification message={'No feedback given'} />
+          ) : (
+            <Statistics
+              state={{
+                ...this.state,
+                total: this.total(),
+                positivePercentage: this.getPositivePercentage(),
+              }}
+            />
+          )}
         </Section>
       </PhoneWrapper>
     );

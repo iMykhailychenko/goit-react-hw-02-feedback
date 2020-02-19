@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './FeedbackBtn.module.css';
 
-const FeedbackOptions = ({ state, onFeedbac }) => {
+const FeedbackOptions = ({ state, onFeedback }) => {
   const buttons = Object.keys(state);
   return (
     <>
@@ -10,7 +10,7 @@ const FeedbackOptions = ({ state, onFeedbac }) => {
           key={item}
           className={styles.btn}
           name={item}
-          onClick={onFeedbac}
+          onClick={onFeedback}
           type="button"
         >
           {item}
