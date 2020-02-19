@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from './Statistics.module.css';
+import Progress from './progress/Progress';
 
 const Statistics = ({
   state: { good, neutral, bad, total, positivePercentage },
@@ -34,11 +35,7 @@ const Statistics = ({
         </li>
       </ul>
 
-      <progress
-        className={style.progress}
-        max="100"
-        value={positivePercentage}
-      />
+      <Progress value={positivePercentage} />
     </>
   );
 };
