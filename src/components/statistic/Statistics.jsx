@@ -7,7 +7,6 @@ const Statistics = ({
 }) => {
   return (
     <ul className={style.list}>
-
       <li className={style.item}>
         <span>good: </span>
         <span>{good}</span>
@@ -32,7 +31,6 @@ const Statistics = ({
         <span>positive percentage: </span>
         <span>{positivePercentage}</span>
       </li>
-
     </ul>
   );
 };
