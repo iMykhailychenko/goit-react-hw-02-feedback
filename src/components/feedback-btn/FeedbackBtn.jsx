@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import styles from './FeedbackBtn.module.css';
 
 const FeedbackOptions = ({ state, onFeedback }) => {
@@ -19,5 +20,14 @@ const FeedbackOptions = ({ state, onFeedback }) => {
     </>
   );
 };
+
+FeedbackOptions.propTypes = {
+  state: PropTypes.shape({
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+  }).isRequired,
+  onFeedback: PropTypes.func.isRequired,
+}
 
 export default FeedbackOptions;
