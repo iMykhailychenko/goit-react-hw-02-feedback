@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 // impor components
 import PhoneWrapper from './phone-wrapper/PhoneWrapper.styled';
-import FeedbackOptions from './feedback-btn/FeedbackBtn';
+import FeedbackBtn from './feedback-btn/FeedbackBtn';
 import Statistics from './statistic/Statistics';
 import Section from './section/Section';
 import Notification from './notification/Notification';
@@ -41,14 +41,11 @@ export default class App extends Component {
     return (
       <PhoneWrapper>
         <Section title="Please leave feedback">
-          <FeedbackOptions
-            state={this.state}
-            onFeedback={this.handleFeedback}
-          />
+          <FeedbackBtn options={this.state} onFeedback={this.handleFeedback} />
         </Section>
         <Section title="Statistics">
           {this.total() === 0 ? (
-            <Notification message={'No feedback given'} />
+            <Notification message="No feedback given" />
           ) : (
             <Statistics
               state={{

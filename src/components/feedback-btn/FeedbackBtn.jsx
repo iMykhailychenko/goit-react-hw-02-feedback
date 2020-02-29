@@ -1,33 +1,33 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import styles from './FeedbackBtn.module.css';
 
-const FeedbackOptions = ({ state, onFeedback }) => {
-  const buttons = Object.keys(state);
+const FeedbackBtn = ({ options, onFeedback }) => {
+  const buttons = Object.keys(options);
   return (
     <>
-      {buttons.map(item => (
+      {buttons.map(feedbackOption => (
         <button
-          key={item}
+          key={feedbackOption}
           className={styles.btn}
-          name={item}
+          name={feedbackOption}
           onClick={onFeedback}
           type="button"
         >
-          {item}
+          {feedbackOption}
         </button>
       ))}
     </>
   );
 };
 
-FeedbackOptions.propTypes = {
-  state: PropTypes.shape({
+FeedbackBtn.propTypes = {
+  options: PropTypes.shape({
     good: PropTypes.number.isRequired,
     neutral: PropTypes.number.isRequired,
     bad: PropTypes.number.isRequired,
   }).isRequired,
   onFeedback: PropTypes.func.isRequired,
-}
+};
 
-export default FeedbackOptions;
+export default FeedbackBtn;
